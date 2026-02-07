@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Извинявай, Юли ❤️</title>
+
     <style>
         body {
             font-family: Arial, sans-serif;
-            text-align: center;
             background: #ffeef2;
+            text-align: center;
             padding-top: 50px;
+            overflow: hidden;
         }
 
         h1, h2 {
@@ -18,16 +20,17 @@
         button {
             padding: 12px 20px;
             font-size: 18px;
-            margin: 10px;
-            cursor: pointer;
             border: none;
-            border-radius: 10px;
+            border-radius: 12px;
+            cursor: pointer;
             background: #ff6b9a;
             color: white;
         }
 
-        #runaway {
-            position: absolute;
+        .container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
         }
 
         img {
@@ -35,33 +38,57 @@
             margin-top: 20px;
             border-radius: 15px;
         }
+
+        .runaway {
+            position: absolute;
+        }
     </style>
 </head>
+
 <body>
 
-<div id="step1">
-    <h1>Здравей Юли ❤️</h1>
-    <button onclick="goToStep2()">Здравей Мишко</button>
-    <button id="runaway" onmouseover="moveButton(this)">Чао Мишко</button>
-</div>
+<div class="container">
 
-<div id="step2" style="display:none;">
-    <h2>Прощаваш ли ми? 🥺</h2>
-    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZ2JqZ2x1Z3JzZ3ZzYzFzM2ZzZ2Y3bHh6bTZ6cXN4d2M1Y2ZzbiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/3oEdv4hwWTzBhWvaU0/giphy.gif">
-    <br>
-    <button onclick="goToStep3()">Да ❤️</button>
-    <button id="runawayNo" onmouseover="moveButton(this)">Не 😒</button>
-</div>
+    <!-- ПЪРВА СТРАНИЦА -->
+    <div id="step1">
+        <h1>Здравей Юли ❤️</h1>
+        <button onclick="goToStep2()">Здравей Мишко</button>
+        <br><br>
+        <button class="runaway" onmouseover="moveButton(this)">
+            Чао Мишко
+        </button>
+    </div>
 
-<div id="step3" style="display:none;">
-    <h2>Знаех си! Обичам те! 🥰</h2>
-    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExb25xZ2Rwb2lxbWpsbnJ3N3F3b2Y0c3ZzZzZ6c3Z1d2J6eGJ4aCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/l0MYt5jPR6QX5pnqM/giphy.gif">
+    <!-- ВТОРА СТРАНИЦА -->
+    <div id="step2" style="display:none;">
+        <h2>Прощаваш ли ми? 🥺</h2>
+
+        <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExenZsNHFlYjRrMzF3c296N3FqZW1hN2lhemM0MTZicXhqOTEzYTNwdSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Ibn7LZ38Sy4wDeoQz9/giphy.gif">
+
+        <br><br>
+
+        <button onclick="goToStep3()">Да ❤️</button>
+
+        <button class="runaway" onmouseover="moveButton(this)">
+            Не 😒
+        </button>
+    </div>
+
+    <!-- ТРЕТА СТРАНИЦА -->
+    <div id="step3" style="display:none;">
+        <h2>Знаех си! Обичам те многооо! 🥰</h2>
+
+        <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExNXRieWY3eGM4aDc1MHhpZThiY2lnNzRyaHhnZXd6aXZ0NTkxNjVoMiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/uakdGGShmMS0KYfTgp/giphy.gif">
+    </div>
+
 </div>
 
 <script>
     function moveButton(btn) {
-        const x = Math.random() * (window.innerWidth - 150);
-        const y = Math.random() * (window.innerHeight - 50);
+        const padding = 100;
+        const x = Math.random() * (window.innerWidth - padding);
+        const y = Math.random() * (window.innerHeight - padding);
+
         btn.style.left = x + "px";
         btn.style.top = y + "px";
     }
